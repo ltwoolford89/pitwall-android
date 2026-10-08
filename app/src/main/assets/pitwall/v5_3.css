@@ -1,0 +1,180 @@
+/* PITWALL V5.3.1 — scrolling correction to V5.3 race-design system. No game/data logic is replaced. */
+:root{--bg:#06080c;--panel:#10141c;--panel2:#171d28;--line:#29303c;--ink:#f7f8fa;--muted:#98a1b0;--accent:#f33149;--lime:#f33149;--blue:#c8d2e0;--v4-red:#f33149;--radius:18px;color-scheme:dark}
+html{background:#06080c;overscroll-behavior-y:none;overflow-x:clip}
+body{color:var(--ink);background:radial-gradient(ellipse 83% 22% at 88% -8%,#7c12294a,transparent 90%),radial-gradient(ellipse 70% 26% at -18% 34%,#1d344139,transparent 85%),linear-gradient(165deg,#080d14,#05070c 63%,#0a0c12);background-attachment:scroll;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;overscroll-behavior-y:none;overflow-x:clip}
+.shell{max-width:750px;padding:calc(env(safe-area-inset-top,0px) + 12px) 15px calc(108px + env(safe-area-inset-bottom,0px));min-height:100dvh}
+@media(display-mode:standalone){.shell{padding-top:max(64px,calc(env(safe-area-inset-top,0px) + 12px))}}
+.topbar{height:76px;max-width:none;padding:5px 1px 12px;position:relative;margin:0 0 4px}
+.topbar:after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,#ff3648aa,transparent 75%)}
+.topbar .brand{font-size:26px;font-weight:1000;letter-spacing:-1.75px;font-style:italic;gap:8px;text-shadow:0 2px 22px #0008}
+.topbar .brand-icon{width:39px;height:39px;border-radius:10px;box-shadow:0 5px 17px #0009;border:1px solid #ffffff16}
+.topbar .v41-version{font-style:normal;font-size:9px;letter-spacing:.08em;color:#d2d9e4;background:#202734;border:1px solid #454757;padding:6px 8px}
+.v41-header-actions .v41-settings-gear{width:39px;height:39px;color:#e7edf4;background:#1b212d;border:1px solid #3a4555;border-radius:13px}
+.micro,.round,.v41-overline,.v4-strip-head,.v4-section-title,.v4-widget-top,.v42-kicker,.settings-group-title,.v41-session-head{letter-spacing:.1em;font-weight:850}
+.micro,.round,.v41-overline-red,.v42-kicker{color:#ff4056!important}
+.card,.settings-group,.racecard,.v4-widget,.v4-forecast,.v41-calendar-forecast,.v42-weather-panel{background:linear-gradient(157deg,#141b25,#0c121a 80%);border:1px solid #2b3646;box-shadow:0 12px 30px #0005;border-radius:19px}
+.btn,.seg button,.v4-hero-actions button,.v4-hero-actions a{transition:background .12s ease,border-color .12s ease,transform .12s ease}
+.btn:active,.seg button:active,.v4-hero-actions button:active,.v4-hero-actions a:active{transform:scale(.985)}
+.btn.primary,.btn.lime{background:#ed3048;color:white;border-color:#fa5266;font-weight:900;box-shadow:0 6px 20px #9d172a32}
+.btn.flat{background:#202734;color:#eef3f8;border-color:#3b4554}
+.pill{color:#c9d2df;background:#181f2b;border-color:#363f4d}
+/* Global premium floating iPhone dock, preserving V5.2.1 safe-area fix */
+.bottomnav,body.v3-light .bottomnav{position:fixed;left:50%;right:auto;bottom:calc(9px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(560px,calc(100% - 20px));max-width:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:7px 5px 8px;gap:2px;background:#121822f2;border:1px solid #39414ed9;border-radius:23px;box-shadow:0 16px 48px #000d;z-index:35;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.bottomnav button{width:100%;min-width:0;padding:6px 2px;min-height:48px;font-size:9px;gap:4px;line-height:1.1;letter-spacing:.005em;color:#99a6b6;border-radius:16px}
+.bottomnav button svg{height:22px;width:22px;flex-shrink:0}
+.bottomnav button.active{background:linear-gradient(145deg,#642132,#391b28);color:#ff6d7d}
+.bottomnav button.active svg{stroke:#ff5266}
+/* Hero: dramatic real-race control layout inspired by the supplied reference. */
+.v4-home-panel{display:flex;flex-direction:column;gap:14px}
+.v41-hero{order:0;margin:15px 0 0;padding:22px 17px 17px;border-radius:25px;border:1px solid #384450;min-height:unset;background:radial-gradient(ellipse 68% 62% at 100% 33%,#76233755,transparent 88%),linear-gradient(156deg,#17212e 0%,#0b111b 67%,#1d121b 100%);box-shadow:0 20px 56px #000b,inset 0 1px #ffffff0f}
+.v41-hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(154deg,transparent 0 34px,#ffffff04 35px 36px);mask-image:linear-gradient(100deg,transparent,#000)}
+.v41-hero:after{content:"";position:absolute;left:0;top:0;width:105px;height:4px;border-radius:0 0 4px 0;background:#ff3d52;box-shadow:0 0 18px #f83e546e}
+.v41-ambient{background:linear-gradient(150deg,transparent 55%,#fb304114),radial-gradient(ellipse at 93% 95%,#ce2b3d22,transparent 65%)}
+.v41-overline{font-size:10px;color:#aab6c5}
+.v41-hero-main{grid-template-columns:minmax(0,1fr) minmax(100px,39%);margin-top:18px;align-items:center;gap:1px}
+.v41-grandprix-title{font-size:clamp(28px,8vw,44px);font-weight:950;letter-spacing:-.07em;color:#f9fbfd;line-height:1.03}
+.v41-hero-copy h1{font-size:clamp(24px,7vw,38px);font-weight:900;letter-spacing:-.055em;margin:1px 0 11px;color:#f5f7fb}
+.v41-hero-copy p{color:#aeb7c8;font-size:11px;margin-bottom:15px;line-height:1.6}
+.v41-hero-time{font-size:27px;font-weight:950;color:#fff;letter-spacing:-.04em}
+.v41-hero-time span{font-size:8px;letter-spacing:.1em;color:#bbc4d3;margin-top:6px}
+.v41-hero-map{min-height:120px;align-items:center;justify-content:center;position:relative;cursor:pointer}
+.v41-circuit{width:100%;height:119px;color:#fff;filter:drop-shadow(0 0 14px #ff7a822c) drop-shadow(0 6px 3px #0007)}
+.v41-hero-map small{font-size:8px;letter-spacing:.19em;color:#b9c4d1}
+.v41-clock{margin-top:19px;padding:15px 0 14px;border-top:1px solid #ffffff26;border-bottom:1px solid #ffffff20;background:linear-gradient(90deg,#ff304605,transparent)}
+.v41-clock div:not(:last-child){border-right-color:#ffffff25}
+.v41-clock b{color:#ff4358;font-size:clamp(34px,10vw,49px);font-weight:950;letter-spacing:-.065em;line-height:1}
+.v41-clock span{font-size:9px;letter-spacing:.12em;color:#bfc9d4;margin-top:8px}
+.v41-session-head{margin-top:16px;color:#e4e8f0;font-size:10px}.v41-session-head span{color:#9baabb;font-weight:600;letter-spacing:0}
+.v41-sessions{gap:5px;margin:10px 0 16px}
+.v41-session{padding:10px 2px 9px;border:1px solid #344255;border-radius:12px;min-width:0;background:linear-gradient(160deg,#1d2a38,#13202c);gap:4px}
+.v41-session small{font-size:9px;font-weight:900;letter-spacing:.02em;color:#d7e0eb}.v41-session span{font-size:22px}.v41-session b{color:#9eafc3;font-size:9px}.v41-session strong{font-size:10px;color:#fff}
+.v41-session.is-race{background:linear-gradient(155deg,#5a1b2b,#321620);border-color:#ee435b}
+.v41-session.is-race small,.v41-session.is-race strong{color:#fff}
+.v4-hero-actions{gap:8px}.v4-hero-actions button,.v4-hero-actions a{min-width:0;border-radius:11px;font-size:11px;font-weight:900;padding:14px 5px}
+.v4-hero-actions button{background:#f03249;color:#fff;border-color:#ff6172}.v4-hero-actions a{background:#202934;border-color:#435366;color:#e8eef5}
+/* Weather app: upcoming race flag strip, forecast-style championship ladder */
+.v41-calendar-forecast{order:1;margin:0;padding:14px;border-radius:19px;background:linear-gradient(160deg,#18212b,#0b141d)}
+.v4-strip-head{margin:0 0 12px}.v4-strip-head b{font-size:11px;color:#f7f7fa}.v4-strip-head span{font-size:10px;color:#ff6476}
+.v4-race-strip{gap:9px;padding:0 0 5px;scroll-snap-type:x proximity}
+.v4-race-chip{scroll-snap-align:start;flex-shrink:0;min-width:91px;border:1px solid #3c4856;border-radius:13px;background:linear-gradient(148deg,#253140,#121e2a);padding:14px 9px 12px;color:#f7f8fa}
+.v4-race-chip.selected{border-color:#f74d65;background:linear-gradient(150deg,#442332,#24212e);box-shadow:inset 0 0 0 1px #fb3b511e}
+.v4-race-chip .v4-flag{font-size:26px;filter:drop-shadow(0 4px 4px #0008)}
+.v4-race-chip b{font-size:12px;font-weight:800}.v4-race-chip span:not(.v4-flag),.v4-race-chip small{color:#abb8c8;font-size:10px}
+.v4-forecast{order:2;margin:0;padding:15px 13px;border-radius:20px;background:linear-gradient(150deg,#18212d,#0b121b)}
+.v4-section-title{border-bottom:1px solid #2b3544;padding-bottom:11px;gap:8px}
+.v4-section-title b{font-size:15px!important;font-weight:900;color:#fff}.v4-section-title span{font-size:10px;color:#9dacbe}
+.v4-forecast .v4-section-title>button{background:#502032;border:1px solid #853245;color:#ffa0aa;font-size:9px}
+.v4-ladder-row{background:transparent;min-height:64px;padding:10px 4px;border-bottom:1px solid #ffffff13;gap:8px;position:relative}
+.v4-ladder-row:first-child{background:linear-gradient(90deg,#54304455,transparent 75%);border-radius:12px}
+.v4-position{width:27px;height:29px;display:grid;place-items:center;background:#293340;color:#f5f5f6;border-radius:8px;font-weight:900;border:1px solid #3a4855;font-size:13px}
+.v4-ladder-row:first-child .v4-position{background:#e8364b;color:white;border-color:#fa5268}
+.v4-ladder-row .v4-avatar{width:45px;height:45px;object-fit:contain;image-rendering:pixelated;border-radius:8px;background:#1c2935}
+.v4-ladder-info{min-width:0}.v4-ladder-info b{font-size:12px;color:#f9fafb;font-weight:720;letter-spacing:-.025em}.v4-ladder-info strong{font-weight:950;font-size:13px}
+.v4-ladder-info small.v41-teamline{font-size:10px;margin-top:4px;color:#aab9c9}.v4-ladder-info .v41-team-icon{width:19px;height:19px}
+.v4-ladder-pts b{font-size:21px!important;font-weight:950;color:#fff}.v4-ladder-pts small{font-size:9px;color:#a6b3c3}
+.v4-mini-track{height:3px;opacity:.65;background:#2b3440;margin-top:7px}
+.v42-home{order:3;margin:0;border-radius:19px;padding:16px;background:linear-gradient(145deg,#17222e,#111721 70%,#261825)}
+.v42-weather-head h3{font-weight:900;letter-spacing:-.035em}.v42-weather-source{border-top:1px solid #ffffff1c;color:#8fa0ae;font-size:10px}
+.v4-widget-grid{order:4;gap:12px;margin-top:0}.v4-widget{border-radius:18px;min-height:140px;border:1px solid #34404d;padding:17px;background:linear-gradient(155deg,#1d2836,#0c141d 85%);box-shadow:0 12px 28px #0006;overflow:hidden}
+.v4-widget-race{background:radial-gradient(ellipse at 100% 115%,#7a263b55,transparent 70%),linear-gradient(150deg,#1f2531,#0b111a)}
+.v4-widget-driver{background:radial-gradient(ellipse at 100% 110%,#b64c1955,transparent 68%),linear-gradient(155deg,#19202a,#0e1119)}
+.v4-widget-constructors{background:radial-gradient(ellipse at 110% 60%,#63213a66,transparent 70%),linear-gradient(155deg,#1c2531,#0d141d)}
+.v4-widget-top{color:#e6edf5;font-size:10px}.v4-widget-top span:first-child{color:#ff596a}
+/* Full championship: editorial hierarchy, drivers and team blocks. */
+.sectionhead{margin:26px 0 13px}.sectionhead h2{font-size:34px;font-weight:950;letter-spacing:-.06em;color:#f8fafb}
+.sectionhead .micro{font-size:10px;letter-spacing:.16em}
+.seg{background:#131a24;border:1px solid #2d3846;padding:5px;gap:3px;border-radius:15px}
+.seg button{font-size:10px;font-weight:900;letter-spacing:.04em;border-radius:11px;padding:13px 4px;color:#abb7c6}
+.seg button.active{background:linear-gradient(135deg,#ff4357,#c82b46);color:white;box-shadow:0 4px 14px #ab2a3b66}
+.main-tab>.card:not(.racecard){border-radius:20px}
+.main-tab>.card:has(.v41-standing-row){padding:8px 10px!important;overflow:hidden;background:linear-gradient(150deg,#151d28,#0c121b)}
+.leader.v41-standing-row{border-bottom:1px solid #ffffff12;min-height:71px;padding:8px 5px;gap:9px;display:flex;align-items:center;border-radius:0}
+.leader.v41-standing-row:first-child{background:linear-gradient(90deg,#6e253744,transparent 72%);border-radius:12px}
+.leader .pos{min-width:24px;width:24px;font-size:14px;font-weight:950;color:#c5d0dd}.leader:first-child .pos{color:#ff5b70}
+.leader .stripe{width:3px;height:42px;border-radius:4px}
+.v4-standing-avatar{width:47px;height:49px;object-fit:contain;image-rendering:pixelated;background:#253240;border-radius:10px}
+.leader .name{font-size:13px;font-weight:950;color:#fcfcff;line-height:1.2}.leader .name small{display:block;font-size:11px;margin-top:4px;color:#adbac9}
+.leader .team.v41-teamline{gap:4px;color:#b7c5d4;font-size:11px;margin-top:2px}.leader .team .v41-team-icon{width:19px;height:19px}
+.leader .pts{font-size:19px;font-weight:950;color:#fff}.leader .pts small{font-size:8px;letter-spacing:.065em;color:#94a4b7}
+/* Calendar: track thumbnails, compact timing and expandable single map. */
+.racegrid{display:grid;gap:11px}
+.racecard{border-radius:20px!important;overflow:hidden;margin:0;background:linear-gradient(150deg,#17212e,#0c131b 85%);box-shadow:0 9px 24px #0007}
+.racecard>button{padding:17px 16px 18px;position:relative;min-height:126px;isolation:isolate;overflow:hidden}
+.racecard>button:before{content:"";position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(#f84458,#9d2343);opacity:.85}
+.racecard .round{font-weight:900;font-size:10px;color:#ff5469}
+.racecard .rc-arrow{font-size:22px;line-height:1;color:#f7f9fd;border-radius:50%;width:25px;height:25px;text-align:center;background:#293444}
+.racecard .racename{position:relative;z-index:1;font-size:17px;font-weight:900;letter-spacing:-.035em;max-width:72%;margin:14px 0 8px;color:white}
+.racecard .v4-card-flag{font-size:24px;margin-right:5px;vertical-align:middle}
+.racecard .rc-meta{position:relative;z-index:1;font-size:10px;max-width:68%;color:#abbacc}
+.v53-track-thumb{position:absolute;right:16px;top:41px;width:93px;height:70px;color:#cdd4dc;opacity:.88;filter:drop-shadow(0 4px 3px #000a);pointer-events:none}
+.v53-track-thumb svg{width:100%;height:100%;color:inherit}
+.racecard:has(>button[aria-expanded="true"]){border-color:#c94355;box-shadow:0 0 0 1px #e6405422,0 18px 36px #0009}
+.raceinner{background:linear-gradient(150deg,#161d28,#0e1621);padding:16px;border-top-color:#3b4151}
+.track-panel,.official-circuit,.v43-single-map{background:#101a25;border:1px solid #344253;border-radius:16px}
+.trackmap,.f1-track-art{background:radial-gradient(ellipse at 60% 40%,#1d3042,#09121d 78%);border-radius:14px}
+.schedule{border-color:#ffffff16;padding:12px 0}.schedule .session{font-size:12px}.schedule .when{color:#fff}
+.podium .item{background:#1c2836;border:1px solid #2f3c4c}
+/* Career: racing game, dashboard cards, and upgrade shop. */
+.main-tab>.hero{padding:28px 21px 26px;min-height:227px;margin:15px 0 17px;background:radial-gradient(ellipse at 105% 80%,#96243466,transparent 59%),linear-gradient(128deg,#202938,#0c131d 75%);border:1px solid #394250;border-radius:23px;box-shadow:0 17px 40px #0008;position:relative;overflow:hidden}
+.main-tab>.hero:after{content:"01  /  ROAD TO F1";position:absolute;bottom:16px;right:18px;color:#ffffff25;letter-spacing:.1em;font-weight:950;font-size:10px}
+.main-tab>.hero:before{content:"";position:absolute;right:-29px;top:15px;width:152px;height:152px;border:20px solid #f43b4e16;border-radius:50%;pointer-events:none}
+.hero .eyebrow{color:#ff5c70!important;font-size:10px;letter-spacing:.14em;font-weight:900}
+.hero h1{font-size:clamp(31px,8vw,49px);font-weight:950;letter-spacing:-.065em;line-height:1.03;margin:15px 0 14px;max-width:320px}
+.hero p{font-size:13px;line-height:1.6;color:#b8c6d4;max-width:330px}
+.main-tab>.wide-desktop{background:linear-gradient(150deg,#151d29,#0d141f);border-radius:20px;padding:20px 17px}
+.main-tab>.wide-desktop h2{font-size:25px;font-weight:950;letter-spacing:-.04em;margin:12px 0 20px}
+.game-title,.market h4{font-weight:900}.game-tabs,.v3-career-tabs{border-color:#344151;background:#111925}
+.game-tabs button{color:#a9bbca;background:#1b2633}.game-tabs button.active{background:#ec354c;color:white}
+.stat,.billbox,.offerbox,.skill-node,.market,.career-season-card{background:linear-gradient(150deg,#1d2836,#111b27);border:1px solid #334456;border-radius:15px}
+.progress{background:#334252;height:9px}.progress>i{background:linear-gradient(90deg,#f2445a,#ff9962)}
+.level-pips span.on{background:#f33d55}.market h4{color:#f9fbfd}.market p{color:#b3c0d0}
+input,select{color:#eff3f7;background:#151f2b;border:1px solid #334254;border-radius:11px;font-size:14px}
+label{color:#c6d0da}
+/* Driver/team history modals. */
+.v44-driver-shade,.v41-profile-shade{background:#03050bdf;backdrop-filter:blur(12px)}
+.v44-driver-modal,.v41-profile,.v43-team-modal{background:linear-gradient(160deg,#192330,#0a1019 76%);border:1px solid #415066;border-radius:22px;box-shadow:0 25px 90px #000e}
+.v44-driver-header{background:linear-gradient(125deg,color-mix(in srgb,var(--team),#0a111c 80%),#0e151f 78%);border-bottom:1px solid #ffffff20}
+.v44-driver-pixel,.v41-profile-art{border-radius:13px;background:#182939;border-color:#435466}
+.v44-stat,.v41-profile-stats>div{background:#1e2a39;border-color:#3d4655}
+.v44-stat b{color:#ff5567}.v44-season-bar>div{background:#263142}
+/* Settings: Apple-grouped logic, more dramatic brand palette. */
+.settings-title{font-size:36px;color:#f8fafd;font-weight:950;letter-spacing:-.06em}
+.v521-settings-version{color:#ffb1b9;background:#3f2431;border-color:#85435a}
+.settings-group-title{margin:21px 10px 9px;color:#ff6577;font-size:10px;font-weight:900;letter-spacing:.13em}
+.settings-group{margin:7px 0 22px;border-radius:17px;background:linear-gradient(125deg,#1a2430,#121a25);border-color:#36404d;overflow:hidden}
+.settings-row{border-bottom:1px solid #ffffff13;padding:11px 13px;min-height:63px;gap:12px}
+.settings-row .settings-label{font-size:13px;font-weight:750;color:#e5ebf3}
+.settings-ico{background:linear-gradient(155deg,#e94359,#9f2a43);border-radius:9px;color:white;box-shadow:0 4px 8px #0004}
+.settings-row select{background:#242e3c;color:#f2f6fa;border:1px solid #414b5a;max-width:190px;font-size:11px;padding:10px}
+.settings-hint{font-size:11px;color:#91a2b4;line-height:1.6}
+.switch.on{background:#df384e}
+.v5-connect{background:linear-gradient(150deg,#1c2a36,#101923);border-color:#344b5a}
+.v5-settings-action{color:#ff6879!important}
+.footer,.sources{color:#657383!important;font-size:10px;line-height:1.6}
+/* Light appearance still works when chosen, without sacrificing contrast. */
+body.v3-light{color-scheme:light;--bg:#f1f3f7;--panel:#fff;--panel2:#edf0f5;--line:#d8dce5;--ink:#17202b;--muted:#647084;background:#f1f3f7;color:#16202b}
+body.v3-light .shell{background:transparent}
+body.v3-light .topbar .brand{color:#141b25;text-shadow:none}
+body.v3-light .sectionhead h2,body.v3-light .settings-title{color:#17212b}
+body.v3-light .card,body.v3-light .settings-group,body.v3-light .racecard,body.v3-light .v4-forecast,body.v3-light .v41-calendar-forecast{background:linear-gradient(#fff,#f4f6fa);border-color:#d6dce5;color:#1c2632}
+body.v3-light .v4-ladder-info b,body.v3-light .v4-ladder-pts b,body.v3-light .leader .name,body.v3-light .leader .pts,body.v3-light .racecard .racename,body.v3-light .settings-row .settings-label{color:#182431}
+body.v3-light .v41-hero,body.v3-light .main-tab>.hero{background:linear-gradient(145deg,#273447,#131d2c);color:white}
+body.v3-light .v41-hero-copy h1,body.v3-light .v41-grandprix-title,body.v3-light .hero h1{color:white}
+body.v3-light .bottomnav{background:#f5f6f9f4;border-color:#ccd4df}
+body.v3-light .bottomnav button{color:#687689}
+body.v3-light .bottomnav button.active{background:#ffe5eb;color:#a51f36}
+body.v3-light .v42-home{background:linear-gradient(#eff2f7,#e3e9f3);color:#182333}
+body.v3-light .v4-widget{background:linear-gradient(#fefeff,#e3e9f3);color:#182333}
+body.v3-light .settings-ico{color:white}
+body.v3-light .settings-row select{color:#26374b;background:#ebf0f6}
+@media(max-width:390px){.shell{padding-left:12px;padding-right:12px}.v41-hero{padding:17px 13px 15px}.v41-grandprix-title{font-size:26px}.v41-hero-copy h1{font-size:23px}.v41-clock b{font-size:36px}.v41-session small{font-size:8px}.v41-session strong{font-size:9px}.v4-forecast .v4-section-title>button{font-size:9px}}
+@media(max-width:355px){.topbar .brand{font-size:22px}.v41-hero-main{grid-template-columns:minmax(0,1fr) minmax(88px,38%)}.v41-circuit{height:93px}.bottomnav{width:calc(100% - 12px)}.bottomnav button{font-size:8px}.v4-ladder-row .v4-avatar{width:36px;height:40px}.v4-race-chip{min-width:84px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* The race-centre widgets appear after the championship, not before the race strip. */
+.v4-home-bottom{order:4;margin-top:0}
+.v4-home-bottom .v4-widget-grid{margin-top:11px}
+.v4-home-bottom>div:first-child{margin-bottom:8px}
+/* Career subsections scroll horizontally instead of being clipped on iPhone. */
+.game-tabs,.v3-career-tabs{display:flex;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity}
+.game-tabs::-webkit-scrollbar,.v3-career-tabs::-webkit-scrollbar{display:none}
+.game-tabs button,.v3-career-tabs button{white-space:nowrap;flex:0 0 auto;scroll-snap-align:start}

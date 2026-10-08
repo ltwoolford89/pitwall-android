@@ -1,0 +1,19 @@
+/* PITWALL V5 connected experience — respects earlier visual design. */
+.v5-connect{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:11px 12px;margin:3px 0 12px;background:linear-gradient(120deg,#111e2c,#1b2a38);border:1px solid #29445b;border-radius:16px;color:#dce9fa}
+.v5-connect-text{display:flex;flex-direction:column;gap:4px;min-width:0;line-height:1.3}
+.v5-connect-text strong{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.1em}
+.v5-connect-text>span{font-size:11px;color:#bac7d6;line-height:1.4}
+.v5-state-dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
+.v5-mini-refresh{width:35px;height:35px;flex:0 0 35px;border:1px solid #42536a;background:#273b4e;color:#dfeafb;border-radius:12px;font-size:21px}
+.v5-mini-refresh:disabled{opacity:.45}
+.v5-settings-action{border:0;color:#77bbfa;background:transparent;font-size:12px;font-weight:700;white-space:nowrap;text-align:right;padding:9px 2px}
+.v5-settings-action:disabled{opacity:.5}
+.v5-setting-status{white-space:nowrap}
+.v5-install-shade{position:fixed;inset:0;background:#000c;display:flex;justify-content:center;align-items:center;z-index:300;padding:18px;backdrop-filter:blur(9px)}
+.v5-install-modal{width:min(100%,450px);position:relative;border-radius:24px;border:1px solid #3b4b5f;background:#132132;padding:24px;color:#e7f1fd;max-height:90dvh;overflow-y:auto;box-shadow:0 15px 75px #0009}
+.v5-install-modal h2{font-size:24px;letter-spacing:-.04em}.v5-install-modal li{margin:12px 0;font-size:14px;line-height:1.55}
+.v5-modal-close{position:absolute;right:14px;top:10px;border:0;background:none;color:#e6f3ff;font-size:28px}
+body.v3-light .v5-connect{background:#e6effa;border-color:#b0c9e4;color:#22374e}
+body.v3-light .v5-connect-text>span{color:#476681}
+body.v3-light .v5-mini-refresh{background:#d4e5f7;color:#22374e}
+@media(min-width:650px){.v5-connect{padding:14px 20px}.v5-connect-text>span{font-size:12px}}

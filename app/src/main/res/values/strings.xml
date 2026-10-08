@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">PITWALL</string>
+<string name="next_race_desc">Next Grand Prix with Adelaide race time</string>
+<string name="driver_desc">Favourite F1 driver and championship points</string>
+<string name="constructor_desc">Top three F1 constructors</string>
+</resources>

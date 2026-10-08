@@ -1,0 +1,34 @@
+/* V4.4 driver archive profile; respects existing dark and light application themes. */
+.v44-driver-shade{z-index:2100;backdrop-filter:blur(10px);background:rgba(0,3,9,.85)}
+.v44-driver-modal{width:min(100%,490px);max-height:min(90dvh,820px);padding:0;border-radius:23px;overflow-y:auto;overscroll-behavior:contain;text-align:left;background:#0b1420;border:1px solid #304355;color:#fff;box-shadow:0 30px 90px #000a;position:relative}
+.v44-driver-modal .v4-close{z-index:2;right:12px;top:12px;border:1px solid #526070;background:#162633;height:36px;width:36px;font-size:24px;cursor:pointer}
+.v44-driver-header{padding:26px 20px 19px;background:linear-gradient(140deg,color-mix(in srgb,var(--team),#0c1420 74%),#101a26 78%);border-bottom:1px solid #304153}
+.v44-driver-header .v43-eyebrow{color:#d8e5ed;font-size:10px;letter-spacing:1.3px}
+.v44-identity{display:flex;gap:14px;margin-top:18px;align-items:center}
+.v44-driver-pixel{width:112px;min-width:112px;aspect-ratio:1;background:#1c2c3b;border:1px solid #364d5e;border-radius:16px;display:grid;place-items:center;overflow:hidden}
+.v44-driver-avatar{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.v44-id-copy{min-width:0;flex:1}
+.v44-code{color:#ff7383;font-weight:900;font-size:12px;letter-spacing:2px}
+.v44-driver-modal h2{font-size:clamp(19px,5vw,31px);line-height:1.08;letter-spacing:-.7px;margin:6px 0 12px;overflow-wrap:anywhere}
+.v44-driver-modal h2 strong{font-weight:950}
+.v44-team-button{border:0;background:#ffffff12;color:#edf4fb;padding:6px 9px 6px 5px;border-radius:10px;display:flex;gap:8px;align-items:center;text-align:left;font-size:11px;font-weight:700;cursor:pointer;max-width:100%}
+.v44-team-button img{width:30px;height:29px;object-fit:contain}.v44-team-button span:nth-of-type(1){flex:1}
+.v44-team-button:hover{background:#ffffff27}.v44-team-button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.v44-season-bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:14px 13px;border-bottom:1px solid #283c4b}
+.v44-season-bar>div{display:grid;gap:5px;text-align:center;padding:10px 2px;background:#182837;border-radius:11px}
+.v44-season-bar b{font-size:22px;line-height:1;color:#fff;letter-spacing:-.5px}
+.v44-season-bar small{font-size:9px;color:#a9b9c5;font-weight:800;letter-spacing:.4px}
+.v44-archive-body{padding:14px 20px 22px}.v44-archive-body h3{font-size:15px;font-weight:850;margin:16px 0 9px}
+.v44-section-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:7px}.v44-section-head h3{margin:9px 0}
+.v44-section-head small{font-size:8px;color:#94aabc;letter-spacing:.4px;font-weight:800}
+.v44-career-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.v44-stat{background:#152534;border:1px solid #263949;border-radius:11px;padding:13px 4px;text-align:center;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;min-height:83px}
+.v44-stat b{font-weight:900;font-size:clamp(20px,5vw,28px);color:#ff5265;line-height:1}
+.v44-stat span{font-size:9px;line-height:1.4;color:#e8eef3;font-weight:800;letter-spacing:.2px}
+.v44-stat small{font-size:9px;color:#91a3b7}
+.v44-data-status{min-height:16px!important;color:#95aabd!important;margin:8px 0 3px!important;font-size:10px!important}
+.v44-archive-body p{font-size:13px;line-height:1.7;color:#bdcddd;margin:0 0 10px}
+.v44-history-summary{font-weight:800;color:#eef5fb!important}
+.v44-fineprint{font-size:10px;color:#9cafbe;line-height:1.6;border-top:1px solid #2b3d4e;padding-top:13px;margin-top:15px}
+.v44-driver-modal .v43-wiki{margin-top:15px}.v3-light .v44-driver-modal{color:white}
+@media (max-width:365px){.v44-driver-header{padding:24px 14px 16px}.v44-identity{gap:9px}.v44-driver-pixel{width:92px;min-width:92px}.v44-archive-body{padding:10px 12px 18px}.v44-career-grid{gap:5px}.v44-stat{padding:12px 2px}}

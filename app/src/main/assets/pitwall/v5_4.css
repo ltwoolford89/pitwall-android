@@ -1,0 +1,49 @@
+/* V5.4 widget & reminder panels. Do not modify the document's scrolling or nav positioning. */
+.v54-dashboard{margin:26px 0 30px;scroll-margin-top:20px}
+.v54-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:8px}
+.v54-heading h2{font-size:27px;font-weight:950;letter-spacing:-1px;margin:7px 0 3px;color:var(--ink)}
+.v54-textbtn{border:0;background:transparent;color:#ff7480;font-size:12px;font-weight:800;padding:7px 0;white-space:nowrap}
+.v54-explain{font-size:12px;color:var(--muted);margin:0 0 14px;line-height:1.45}
+.v54-widget-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.v54-widget{min-width:0;overflow:hidden;border-radius:23px;padding:17px 16px;background:linear-gradient(130deg,#17202b,#10151f 62%,#21131b);border:1px solid #ffffff1d;color:#fff;box-shadow:0 9px 23px #0004}
+.v54-widget.v54-race{grid-column:1 / -1;background:radial-gradient(ellipse at 98% 0%,#7b24374a,transparent 65%),linear-gradient(130deg,#191e2a,#0f151c)}
+.v54-caption{display:flex;justify-content:space-between;gap:9px;align-items:center;font-size:10px;color:#ff6b7b;font-weight:900;letter-spacing:.12em}
+.v54-label{font-size:9px;font-weight:700;color:#aab9ca;letter-spacing:.04em;text-align:right}
+.v54-widget-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(96px,42%);gap:8px;margin-top:13px;align-items:center}
+.v54-widget-row h3{font-size:23px;line-height:1.05;margin:0 0 5px;letter-spacing:-.035em;font-weight:950}
+.v54-widget-row p{font-size:11px;color:#bec4cf;margin:0 0 14px}
+.v54-widget-row strong{display:block;font-size:13px;line-height:1.2;color:#fff}
+.v54-widget-row small{display:block;margin-top:4px;font-size:10px;color:#96a6bb}
+.v54-widget-map{width:100%;overflow:hidden;max-height:95px;display:flex;align-items:center;justify-content:center}
+.v54-widget-map svg{max-width:100%;width:100%;height:90px;object-fit:contain}
+.v54-widget.v54-driver,.v54-widget.v54-team{min-height:145px;padding:15px 12px}
+.v54-widget .v54-caption{font-size:9px;letter-spacing:.02em}
+.v54-drow{display:flex;align-items:center;gap:9px;margin-top:20px;min-width:0}
+.v54-bigpos{font-size:30px;font-weight:950;color:#ff5b6b;line-height:1}
+.v54-drow>div:nth-child(2){min-width:0;flex:1}
+.v54-drow b{display:block;font-size:12px;line-height:1.2;overflow-wrap:anywhere}
+.v54-drow small{display:block;font-size:10px;color:#9aa9bb;margin-top:4px}
+.v54-points{font-weight:900;font-size:15px;text-align:right;white-space:nowrap}
+.v54-points small{font-size:9px}
+.v54-standrow{display:flex;align-items:center;gap:7px;border-bottom:1px solid #ffffff14;padding:9px 0;font-size:10px}
+.v54-standrow:last-child{border-bottom:0}
+.v54-standrow>span{color:#a0a9b9;min-width:8px}
+.v54-standrow>i{width:3px;height:18px;border-radius:2px;flex-shrink:0}
+.v54-standrow>b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px}
+.v54-standrow>strong{font-size:9px;white-space:nowrap}
+.v54-reminder-banner{display:flex;justify-content:space-between;align-items:center;gap:13px;background:linear-gradient(125deg,#271b25,#161e29);border:1px solid #59303d;border-radius:18px;margin-top:13px;padding:15px}
+.v54-reminder-banner b{font-size:12px;display:block}
+.v54-reminder-banner small{color:#a8b0c0;font-size:10px;display:block;margin-top:3px}
+.v54-button{border:1px solid #ff566c;background:#e13c52;border-radius:12px;padding:10px;color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
+.v54-settings{margin:23px 0 12px}
+.v54-setting-row .settings-label{display:block}
+.v54-setting-row .settings-label>b{display:block}
+.v54-setting-row .settings-label>small{display:block;font-size:10px;color:var(--muted);margin-top:5px;line-height:1.35;font-weight:500}
+.v54-switch{height:30px;min-width:50px;border:0;border-radius:20px;background:#485568;padding:3px;display:flex;align-items:center;justify-content:flex-start}
+.v54-switch span{height:24px;width:24px;border-radius:100%;background:#fff;box-shadow:0 1px 4px #0004}
+.v54-switch.on{background:#f4475c;justify-content:flex-end}
+.v54-settingbtn{background:#242d39;border:1px solid #445269;color:#fff;border-radius:10px;padding:8px 10px;font-size:11px;font-weight:800;white-space:nowrap}
+.v54-select{max-width:145px;min-width:120px;background:#202a36;color:#f4f6fb;border:1px solid #465063;border-radius:10px;padding:9px 6px;font-size:11px}
+.v54-empty{grid-column:1 / -1;background:#17212f;border:1px dashed #596174;border-radius:16px;padding:19px;color:#acbacd;font-size:13px}
+@media(max-width:370px){.v54-widget-grid{grid-template-columns:1fr}.v54-widget.v54-race{grid-column:1}.v54-widget.v54-driver,.v54-widget.v54-team{min-height:100px}}
+body.v3-light .v54-widget{color:#fff}
